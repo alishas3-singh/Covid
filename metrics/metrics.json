@@ -1,0 +1,117 @@
+{
+  "metrics": {
+    "Logistic Regression": {
+      "Accuracy": 0.9048,
+      "Precision": 0.8962,
+      "Recall": 0.9157,
+      "F1": 0.9059,
+      "AUC-ROC": 0.9531
+    },
+    "Decision Tree": {
+      "Accuracy": 0.9104,
+      "Precision": 0.8818,
+      "Recall": 0.9479,
+      "F1": 0.9137,
+      "AUC-ROC": 0.9529,
+      "best_params": {
+        "max_depth": 7,
+        "min_samples_leaf": 50
+      }
+    },
+    "Random Forest": {
+      "Accuracy": 0.9126,
+      "Precision": 0.8845,
+      "Recall": 0.9492,
+      "F1": 0.9157,
+      "AUC-ROC": 0.955,
+      "best_params": {
+        "max_depth": 8,
+        "n_estimators": 50
+      }
+    },
+    "Gradient Boosting": {
+      "Accuracy": 0.9109,
+      "Precision": 0.8841,
+      "Recall": 0.9458,
+      "F1": 0.9139,
+      "AUC-ROC": 0.9559,
+      "best_params": {
+        "learning_rate": 0.05,
+        "max_depth": 5,
+        "n_estimators": 100
+      }
+    },
+    "Neural Network (MLP)": {
+      "Accuracy": 0.9119,
+      "Precision": 0.8832,
+      "Recall": 0.9492,
+      "F1": 0.915,
+      "AUC-ROC": 0.9546
+    }
+  },
+  "stats": {
+    "n_rows": 1021977,
+    "n_features": 16,
+    "feature_names": [
+      "SEX",
+      "HOSPITALIZED",
+      "PNEUMONIA",
+      "AGE",
+      "PREGNANT",
+      "DIABETES",
+      "COPD",
+      "ASTHMA",
+      "IMMUNOSUPPRESSION",
+      "HYPERTENSION",
+      "OTHER_DISEASE",
+      "CARDIOVASCULAR",
+      "OBESITY",
+      "RENAL_CHRONIC",
+      "TOBACCO",
+      "COVID_POSITIVE"
+    ],
+    "target": "DEATH",
+    "death_counts": {
+      "0": 947320,
+      "1": 74657
+    },
+    "numerical_features": [
+      "AGE"
+    ],
+    "categorical_features": [
+      "SEX",
+      "HOSPITALIZED",
+      "PNEUMONIA",
+      "PREGNANT",
+      "DIABETES",
+      "COPD",
+      "ASTHMA",
+      "IMMUNOSUPPRESSION",
+      "HYPERTENSION",
+      "OTHER_DISEASE",
+      "CARDIOVASCULAR",
+      "OBESITY",
+      "RENAL_CHRONIC",
+      "TOBACCO",
+      "COVID_POSITIVE"
+    ]
+  },
+  "feature_names": [
+    "SEX",
+    "HOSPITALIZED",
+    "PNEUMONIA",
+    "AGE",
+    "PREGNANT",
+    "DIABETES",
+    "COPD",
+    "ASTHMA",
+    "IMMUNOSUPPRESSION",
+    "HYPERTENSION",
+    "OTHER_DISEASE",
+    "CARDIOVASCULAR",
+    "OBESITY",
+    "RENAL_CHRONIC",
+    "TOBACCO",
+    "COVID_POSITIVE"
+  ]
+}
