@@ -448,9 +448,20 @@ with tab4:
             st.subheader("🔍 SHAP Explanation for This Prediction")
             try:
                 explainer = load_explainer()
-                shap_vals = explainer(input_data)
+                sv = explainer.shap_values(input_data)
+                # sv shape: (1, n_features) for binary classification
+                if isinstance(sv, list):
+                    sv = sv[1]  # class 1 (death)
+                explanation = shap.Explanation(
+                    values=sv[0],
+                    base_values=explainer.expected_value if not isinstance(
+                        explainer.expected_value, (list, np.ndarray)
+                    ) else explainer.expected_value[1],
+                    data=input_data.values[0],
+                    feature_names=feature_names,
+                )
                 fig, ax = plt.subplots(figsize=(8, 6))
-                shap.plots.waterfall(shap_vals[0], show=False)
+                shap.plots.waterfall(explanation, show=False)
                 plt.title("SHAP Waterfall — Your Custom Input")
                 plt.tight_layout()
                 st.pyplot(fig)
