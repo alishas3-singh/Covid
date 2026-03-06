@@ -449,14 +449,16 @@ with tab4:
             try:
                 explainer = load_explainer()
                 sv = explainer.shap_values(input_data)
-                # sv shape: (1, n_features) for binary classification
+                # GradientBoostingClassifier returns single array; others may return list
                 if isinstance(sv, list):
-                    sv = sv[1]  # class 1 (death)
+                    shap_row = sv[1][0]
+                    base_val = explainer.expected_value[1]
+                else:
+                    shap_row = sv[0]
+                    base_val = float(explainer.expected_value)
                 explanation = shap.Explanation(
-                    values=sv[0],
-                    base_values=explainer.expected_value if not isinstance(
-                        explainer.expected_value, (list, np.ndarray)
-                    ) else explainer.expected_value[1],
+                    values=shap_row,
+                    base_values=base_val,
                     data=input_data.values[0],
                     feature_names=feature_names,
                 )
